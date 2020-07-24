@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+
+// Width
+$mobile-width: 375px;
+$desktop-width: 1440px;
+
+// Colors
+
+// light mode
+$very-dark-blue-color: hsl(200, 15%, 8%); // text
+$dark-gray-color: hsl(0, 0%, 52%); // input
+$very-light-gray-color: hsl(0, 0%, 98%); // bg
+
+// dark mode
+$dark-blue-color: hsl(209, 23%, 22%); // elements
+$very-dark-blue-color-2: hsl(207, 26%, 17%); // bg
+
+// light & dark
+$white-color: hsl(0, 0%, 100%); // dark - text, light - elements
+
+$shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.dark-theme {
+  background-color: $very-dark-blue-color-2;
+  color: $white-color;
+
+  a,
+  .search i,
+  ::placeholder {
+    color: $white-color;
+  }
+
+  .navbar,
+  .filter,
+  input[type="text"],
+  select {
+    background-color: $dark-blue-color;
+    color: $white-color;
+  }
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
+  background-color: $very-light-gray-color;
+  color: $very-dark-blue-color;
+}
+
+a {
+  text-decoration: none;
+  color: $very-dark-blue-color;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.navbar {
+  background-color: $white-color;
+  padding: 1.2rem 0;
+  box-shadow: $shadow;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  a {
+    font-weight: 600;
+  }
+}
+
+.form {
+  width: 100%;
+  padding: 2.5rem 0;
+  display: flex;
+  flex-direction: column;
+
+  input[type="text"],
+  select {
+    background-color: $white-color;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem;
+  }
+
+  input[type="text"]:focus,
+  select:focus {
+    outline: none;
+  }
+
+  input[type="text"] {
+    padding-left: 4rem;
+    box-shadow: $shadow;
+  }
+
+  .search {
+    width: 100%;
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .search i {
+    position: absolute;
+    top: 1.1rem;
+    left: 1.5rem;
+    color: $dark-gray-color;
+  }
+
+  .filter {
+    width: 100%;
+    background-color: $white-color;
+    padding-right: 1rem;
+    border-radius: 5px;
+    box-shadow: $shadow;
+  }
+
+  input[type="text"],
+  select {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    width: $desktop-width;
+  }
+
+  .search,
+  .filter {
+    width: auto !important;
+  }
+
+  input[type="text"] {
+    width: 500px !important;
+  }
+
+  select {
+    width: 200px !important;
+  }
+}
+
+@media (min-width: 376px) {
+  .form {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .search {
+    margin-right: 1rem;
+    margin-bottom: 0 !important;
+  }
+}
