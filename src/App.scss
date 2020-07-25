@@ -51,6 +51,7 @@ body {
   font-size: 14px;
   background-color: $very-light-gray-color;
   color: $very-dark-blue-color;
+  overflow-x: hidden;
 }
 
 a {
@@ -149,8 +150,18 @@ a {
     box-shadow: $shadow;
     border-radius: 5px;
     background-color: $white-color;
-    padding: 1.5rem;
-    padding-bottom: 2rem;
+
+    &-img {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      width: 100%;
+      height: auto;
+    }
+
+    &-content {
+      padding: 1.5rem;
+      padding-bottom: 2rem;
+    }
 
     h3 {
       padding-bottom: 1rem;
