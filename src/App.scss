@@ -191,7 +191,7 @@ a {
   }
 }
 
-@media (min-width: 376px) {
+@media (min-width: 426px) and (max-width: 1439px) {
   .form {
     flex-direction: row;
     justify-content: space-between;
@@ -201,5 +201,9 @@ a {
   .search {
     margin-right: 1rem;
     margin-bottom: 0 !important;
+  }
+
+  .country-item {
+    width: calc(50% - 1.25rem) !important;
   }
 }
