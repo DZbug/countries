@@ -168,6 +168,12 @@ a {
 }
 
 @media (min-width: 1440px) {
+  .form {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .container {
     width: $desktop-width;
   }
