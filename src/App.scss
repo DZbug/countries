@@ -178,6 +178,10 @@ a {
     width: $desktop-width;
   }
 
+  .search {
+    margin-bottom: 0 !important;
+  }
+
   .search,
   .filter {
     width: auto !important;
