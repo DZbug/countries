@@ -5,6 +5,8 @@ import CountryReducer from "./countryReducer";
 import {
   GET_COUNTRIES,
   FILTER_COUNTRIES,
+  SEARCH_COUNTRIES,
+  CLEAR_SEARCH_COUNTRIES,
   COUNTRY_ERROR,
   SET_LOADING,
 } from "../types";
@@ -12,6 +14,7 @@ import {
 const CountryState = (props) => {
   const initialState = {
     countries: null,
+    search: null,
     loading: false,
     error: null,
   };
@@ -110,6 +113,17 @@ const CountryState = (props) => {
     }
   };
 
+  // Search Countries
+  const searchCountries = (text) => {
+    dispatch({
+      type: SEARCH_COUNTRIES,
+      payload: text,
+    });
+  };
+
+  // Clear Search Countries
+  const clearSearchCountries = () => dispatch({ type: CLEAR_SEARCH_COUNTRIES });
+
   // Set Loading
   const setLoading = () => dispatch({ type: SET_LOADING });
 
@@ -117,9 +131,12 @@ const CountryState = (props) => {
     <CountryContext.Provider
       value={{
         countries: state.countries,
+        search: state.search,
         loading: state.loading,
         getCountries,
         filterCountries,
+        searchCountries,
+        clearSearchCountries,
       }}
     >
       {props.children}

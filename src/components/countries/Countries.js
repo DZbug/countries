@@ -5,19 +5,23 @@ import CountryContext from "../../context/country/countryContext";
 const Countries = () => {
   const countryContext = useContext(CountryContext);
 
-  const { countries, loading, getCountries } = countryContext;
+  const { countries, loading, search, getCountries } = countryContext;
 
   useEffect(() => {
-    // getCountries();
+    getCountries();
     // eslint-disable-next-line
   }, []);
 
   return (
     <div className="country-list">
       {countries !== null && !loading
-        ? countries.map((country) => (
-            <CountryItem key={country.numericCode} country={country} />
-          ))
+        ? search !== null
+          ? search.map((country) => (
+              <CountryItem key={country.numericCode} country={country} />
+            ))
+          : countries.map((country) => (
+              <CountryItem key={country.numericCode} country={country} />
+            ))
         : ""}
     </div>
   );
