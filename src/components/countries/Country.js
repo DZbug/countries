@@ -11,7 +11,7 @@ const Country = ({ match }) => {
     getCountry(match.params.alpha3Code);
 
     // eslint-disable-next-line
-  }, []);
+  }, [match]);
 
   if (!loading && country !== null) {
     const {
