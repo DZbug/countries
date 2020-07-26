@@ -3,6 +3,7 @@ import {
   FILTER_COUNTRIES,
   SEARCH_COUNTRIES,
   CLEAR_SEARCH_COUNTRIES,
+  GET_COUNTRY,
   COUNTRY_ERROR,
   SET_LOADING,
 } from "../types";
@@ -33,6 +34,12 @@ export default (state, action) => {
       return {
         ...state,
         search: null,
+      };
+    case GET_COUNTRY:
+      return {
+        ...state,
+        country: action.payload,
+        loading: false,
       };
     case COUNTRY_ERROR:
       return {

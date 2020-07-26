@@ -7,6 +7,7 @@ import {
   FILTER_COUNTRIES,
   SEARCH_COUNTRIES,
   CLEAR_SEARCH_COUNTRIES,
+  GET_COUNTRY,
   COUNTRY_ERROR,
   SET_LOADING,
 } from "../types";
@@ -15,6 +16,7 @@ const CountryState = (props) => {
   const initialState = {
     countries: null,
     search: null,
+    country: null,
     loading: false,
     error: null,
   };
@@ -34,6 +36,7 @@ const CountryState = (props) => {
       // flag
       // name
       // numericCode
+      // alpha3Code
 
       let data = [];
 
@@ -45,7 +48,8 @@ const CountryState = (props) => {
             key !== "capital" &&
             key !== "flag" &&
             key !== "name" &&
-            key !== "numericCode"
+            key !== "numericCode" &&
+            key !== "alpha3Code"
           ) {
             delete country[key];
           }
@@ -81,6 +85,7 @@ const CountryState = (props) => {
       // flag
       // name
       // numericCode
+      // alpha3Code
 
       let data = [];
 
@@ -92,7 +97,8 @@ const CountryState = (props) => {
             key !== "capital" &&
             key !== "flag" &&
             key !== "name" &&
-            key !== "numericCode"
+            key !== "numericCode" &&
+            key !== "alpha3Code"
           ) {
             delete country[key];
           }
@@ -124,6 +130,27 @@ const CountryState = (props) => {
   // Clear Search Countries
   const clearSearchCountries = () => dispatch({ type: CLEAR_SEARCH_COUNTRIES });
 
+  // Get Country
+  const getCountry = async (alpha3Code) => {
+    try {
+      setLoading();
+
+      const res = await axios.get(
+        `https://restcountries.eu/rest/v2/alpha/${alpha3Code}`
+      );
+
+      dispatch({
+        type: GET_COUNTRY,
+        payload: res.data,
+      });
+    } catch (err) {
+      dispatch({
+        type: COUNTRY_ERROR,
+        payload: err,
+      });
+    }
+  };
+
   // Set Loading
   const setLoading = () => dispatch({ type: SET_LOADING });
 
@@ -132,11 +159,13 @@ const CountryState = (props) => {
       value={{
         countries: state.countries,
         search: state.search,
+        country: state.country,
         loading: state.loading,
         getCountries,
         filterCountries,
         searchCountries,
         clearSearchCountries,
+        getCountry,
       }}
     >
       {props.children}

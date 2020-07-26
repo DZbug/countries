@@ -19,6 +19,7 @@ $very-dark-blue-color-2: hsl(207, 26%, 17%); // bg
 $white-color: hsl(0, 0%, 100%); // dark - text, light - elements
 
 $shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+$lg-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
 
 * {
   margin: 0;
@@ -40,7 +41,9 @@ body.dark-theme {
   .filter,
   input[type="text"],
   select,
-  .card {
+  .card,
+  .btn,
+  .btn-country {
     background-color: $dark-blue-color;
     color: $white-color;
   }
@@ -173,8 +176,75 @@ a {
     }
 
     .country-description {
-      font-weight: 900;
+      font-weight: 600;
     }
+  }
+}
+
+.back {
+  margin: 2.5rem 0;
+
+  .btn {
+    background-color: $very-light-gray-color;
+    padding: 0.5rem 2.5rem;
+    box-shadow: $lg-shadow;
+    border-radius: 5px;
+  }
+}
+
+.country {
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  // justify-content: space-between;
+  padding: 2.5rem 0;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  h2 {
+    padding-top: 2.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  p {
+    padding-bottom: 0.5rem;
+  }
+
+  &-descriptions {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-description {
+    font-weight: 600;
+  }
+
+  .part-2 {
+    padding-top: 2.5rem;
+  }
+
+  .btn-country {
+    background-color: $very-light-gray-color;
+    padding: 0.25rem 2.5rem;
+    box-shadow: $lg-shadow;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .border-countries {
+    padding-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .border-countries-links {
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 
@@ -209,6 +279,47 @@ a {
   .country-item {
     width: 310px !important;
     margin-bottom: 3.2rem !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .back {
+    margin: 5rem 0 2.5rem 0;
+  }
+
+  .border-countries {
+    flex-direction: row !important;
+    align-items: center !important;
+
+    .title {
+      margin-top: 0.5rem;
+      padding-right: 1rem;
+      padding-bottom: 0;
+    }
+  }
+
+  .country {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+      width: 50%;
+      height: auto;
+    }
+
+    &-descriptions {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &-info {
+      width: 40%;
+    }
+
+    .part-2 {
+      padding-top: 0;
+    }
   }
 }
 
