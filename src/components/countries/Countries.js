@@ -8,7 +8,7 @@ const Countries = () => {
   const { countries, loading, getCountries } = countryContext;
 
   useEffect(() => {
-    getCountries();
+    // getCountries();
     // eslint-disable-next-line
   }, []);
 
